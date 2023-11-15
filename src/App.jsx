@@ -1,4 +1,4 @@
-import { useState,useCallback } from 'react'
+import { useState,useCallback,useEffect } from 'react'
 
 
 
@@ -20,11 +20,15 @@ function App() {
    
     for(let i=1;i<=length;i++){
       let char=Math.floor(Math.random()*str.length+1)
-      pass=str.charAt(char)
+      pass+=str.charAt(char)
     }
     setPassword(pass)
 
   },[length,numallow,charallow,setPassword])
+
+  useEffect(()=>{paaswordGenerator()},[length,numallow,charallow,paaswordGenerator])
+
+
   return (
     <>
        <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-500 bg-gray-800 '>
